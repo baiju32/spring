@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  	<plugins>
+  	<!-- 自定义拦截器 -->
+  		<plugin interceptor="com.cy.interceptor.PageInterceptor"></plugin>
+  	</plugins>
+	<!-- 配置开发环境 -->
+	<environments default="develop">
+		<environment id="develop">
+			<!-- 配置事务管理器(JDBC/MANAGED) --> 
+			<transactionManager type="JDBC"/>
+			<!-- 配置数据源(连接池) (连接池一定实现dataSource接口) -->
+			<!-- 配置连接池数据库的基本信息(4个)
+				 type:UNPOOLED(不使用连接池)/POOLED(使用连接池)/JNDI -->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://127.0.0.1:3306/supermarket?serverTimezone=GMT%2B8"/>
+				<property name="username" value="root"/>
+				<property name="password" value="root"/>
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- 导入XXXMapper.xml文件 -->
+	<mappers>
+		<mapper resource="UserMapper.xml" />
+		<mapper resource="GoodsMapper.xml"/>
+	</mappers>
+
+</configuration>
+

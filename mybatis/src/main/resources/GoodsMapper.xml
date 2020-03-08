@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.handler.GoodsMapper">
+	<resultMap type="com.cy.handler.Goods" id="goodsMap">
+		<result column="status" property="status" typeHandler="com.cy.handler.StatusTypeHandler"/>
+	</resultMap>
+	
+	<select id="findAll" resultMap="goodsMap">
+		select * from goods
+	</select>
+	
+	<insert id="insertGoods" parameterType="com.cy.handler.Goods">
+		insert into goods(name,status) 
+		value(#{name},#{status,typeHandler=com.cy.handler.StatusTypeHandler})
+	</insert>
+</mapper>
+
+
+
+
