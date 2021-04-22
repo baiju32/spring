@@ -10,7 +10,7 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.4.6</version>
+			<version>3.5.6</version>
 		</dependency>
 		<!--引入插件lombok 自动的set/get/构造方法插件 -->
 		<dependency>
